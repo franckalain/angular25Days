@@ -1,0 +1,22 @@
+
+<!--
+  <form ngNativeValidate (ngSubmit)=save(form) #form="ngForm">
+  <div class="form-group">
+  <input type="text" class="form-control" required minlength='3' maxlength="10">
+  </div>
+  <button class="btn btn-primary">Submit</button>
+  </form>
+-->
+
+  <form (ngSubmit)='save()' #form="ngForm" [formGroup]="customerForm">
+  <div class="form-group">
+  <input id="name" type="text" class="form-control" formControlName="firstName" required>
+  <br>
+  <input id="name" type="text" class="form-control" formControlName="email" required>
+  <!--<input id="rating" type="number" class="form-control" formControlName="rating" required>-->
+  </div>
+  <!--<span *ngIf="customerForm.get('rating').errors?.rangeValidator">
+    something wrong</span>-->
+    <button class="btn btn-success" (click)='loadData()'>Test</button>&#160;
+  <button class="btn btn-primary">Submit</button>
+  </form>

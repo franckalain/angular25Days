@@ -1,0 +1,77 @@
+<table *ngIf= execute class="table table-dark">
+  <tr *ngFor="let f of data">
+    <td>{{f.userId}}</td>
+    <td>{{f.id}}</td>
+    <td>{{f.title}}</td>
+    <td>{{f.body}}</td>
+  </tr>
+</table>
+
+<h1>DATA BINDING</h1>
+<!--Interpollation-->
+<!--Symbole => {{title}}-->
+{{title}}
+<!--Property Binding-->
+<!--Symbole => [] = "property"-->
+<button [style.height.px]="height">Click me</button>
+<br>
+<!--Event Binding-->
+<!--Symbole => (click) = "function" -->
+<button class="btn btn-success" [style.height.px]="height" (click) = "add()">Add</button>
+<br>{{result}}
+
+<!--Two way binding-->
+<!--Symbole => property binding [] + event binding () = [()]-->
+<input type="text" [(ngModel)]="nameValue">
+{{nameValue}}
+<br>
+<!--Calculator using two way binding-->
+<br>A Simple calculator
+<br>
+Addidion:
+<br>
+Enter Number: <input type="number" placeholder="number 1" [(ngModel)]="num1">
+<br>
+Enter number: <input type="number" placeholder="number 2" [(ngModel)]="num2">
+<br><button class="btn btn-success" [style.height.px]="height" (click)="add()">Calculate Addition</button>
+<br>{{result}}
+<br><br>
+Substraction:
+<br><button class="btn btn-success" [style.height.px]="height" (click)="substract()">Calculate Substraction</button>
+<br>{{sub}}
+
+<h1>Component Communication:</h1>
+<br>
+{{parentMessage}}
+<br>
+<app-first (foo)="displayFoo($event)" [helloMessage]="childMessage"></app-first>
+
+
+<br>
+<div>
+  <h2 #elemRef>This is h2</h2>
+  <p>This is a paragraph</p>
+</div>
+<!--<button (click)="add(elemRef)">Click</button>
+{{elemRef.textContent}}-->
+
+<div >
+  <p>
+    directive is not applied
+  </p>
+</div>
+
+<div appBgcolor>
+  <p>
+    directive is applied
+  </p>
+</div>
+
+<br><br>
+<h2>Forms</h2>
+<form ngSubmit=save(form) #form="ngForm">
+  <input type="text" class="form-control">
+  <button class="btn btn-primary">Submit</button>
+</form>
+{{form | json}}
+{{form.value | json}}
